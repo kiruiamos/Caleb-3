@@ -1,0 +1,157 @@
+'use client';
+
+import React, { useState } from 'react';
+import { 
+  FaFlask, 
+  FaCalculator, 
+  FaChalkboardUser, 
+  FaVial, 
+  FaPeopleGroup, 
+  FaPhone, 
+  FaWhatsapp, 
+  FaLocationDot, 
+  FaCode 
+} from 'react-icons/fa6';
+
+export default function CombinedPortfolio() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const skillsData = [
+    {
+      icon: <FaChalkboardUser />,
+      title: "Pedagogy & Teaching",
+      items: ["Competency-Based Curriculum (CBC)", "Micro-teaching Innovation", "Student Evaluation & Assessment"]
+    },
+    {
+      icon: <FaVial />,
+      title: "Laboratory Practice",
+      items: ["Safe Chemical Reagent Handling", "High School Experiment Setup", "Practical Safety Drills"]
+    },
+    {
+      icon: <FaPeopleGroup />,
+      title: "Leadership & Mentorship",
+      items: ["Peer Group Tutoring", "Community Youth Guidance", "Effective Public Speaking"]
+    }
+  ];
+
+  return (
+    <div className="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen selection:bg-amber-400 selection:text-slate-950 scroll-smooth">
+      
+      {/* NAVBAR COMPONENT */}
+      <nav className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md text-white shadow-lg border-b border-amber-500/10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-18">
+            <div className="flex-shrink-0 font-extrabold text-xl tracking-wider">
+              CALEB<span className="text-amber-400">.K</span>
+            </div>
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-center space-x-8 text-sm font-semibold tracking-wide">
+                <a href="#about" className="text-slate-300 hover:text-amber-400 transition-colors duration-200">About</a>
+                <a href="#education" className="text-slate-300 hover:text-amber-400 transition-colors duration-200">Education</a>
+                <a href="#skills" className="text-slate-300 hover:text-amber-400 transition-colors duration-200">Skills</a>
+                <a href="#projects" className="text-slate-300 hover:text-amber-400 transition-colors duration-200">Projects</a>
+                <a href="#contact" className="bg-amber-400 text-slate-950 px-5 py-2.5 rounded-lg font-bold hover:bg-amber-300 shadow-md transform hover:-translate-y-0.5 transition-all duration-200">Contact Me</a>
+              </div>
+            </div>
+            <div className="md:hidden">
+              <button onClick={() => setIsOpen(!isOpen)} type="button" className="text-slate-400 hover:text-white focus:outline-none" aria-label="Toggle menu">
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {isOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        {/* Mobile Navigation Dropdown */}
+        {isOpen && (
+          <div className="md:hidden bg-slate-950 border-t border-slate-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="#about" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-amber-400">About</a>
+            <a href="#education" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-amber-400">Education</a>
+            <a href="#skills" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-amber-400">Skills</a>
+            <a href="#projects" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-amber-400">Projects</a>
+            <a href="#contact" onClick={() => setIsOpen(false)} className="block text-center bg-amber-400 text-slate-950 px-4 py-2 rounded-md text-base font-bold">Contact Me</a>
+          </div>
+        )}
+      </nav>
+
+      {/* HERO COMPONENT */}
+      <section id="about" className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white py-28 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-amber-400/10 via-transparent to-transparent pointer-events-none"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <span className="inline-flex bg-amber-400/10 text-amber-400 border border-amber-400/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+            3rd Year BSc. Education Science
+          </span>
+          <h1 className="text-5xl sm:text-7xl font-black tracking-tight mb-6">
+            Caleb Kositany
+          </h1>
+          <p className="text-xl sm:text-2xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed mb-8">
+            Bridging the beauty of <span className="text-amber-400 font-semibold underline decoration-amber-400/40 decoration-wavy">Chemistry</span> and the logic of <span className="text-amber-400 font-semibold underline decoration-amber-400/40 decoration-wavy">Mathematics</span> to inspire the next generation of innovators.
+          </p>
+          <p className="text-sm text-slate-400 mb-10 flex items-center justify-center gap-2 tracking-wide font-medium">
+            <FaLocationDot className="text-amber-400 animate-pulse" /> Originally from Narok County | Currently at Kisii University
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a href="#contact" className="w-full sm:w-auto bg-amber-400 text-slate-950 px-8 py-4 rounded-xl font-bold shadow-xl hover:bg-amber-300 transform hover:-translate-y-0.5 transition-all duration-200">
+              Get in Touch
+            </a>
+            <a href="#projects" className="w-full sm:w-auto border border-slate-800 bg-slate-900/50 hover:border-amber-400/60 px-8 py-4 rounded-xl font-bold tracking-wide transition-all duration-200">
+              View My Work
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* PHILOSOPHY COMPONENT */}
+      <section className="py-20 max-w-4xl mx-auto px-4">
+        <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col md:flex-row gap-8 items-center transform hover:scale-[1.01] transition-transform duration-350">
+          <div className="bg-amber-400/10 p-6 rounded-2xl text-amber-500 text-4xl w-20 h-20 flex items-center justify-center flex-shrink-0">
+            <FaVial />
+          </div>
+          <div>
+            <h2 className="text-2xl font-black mb-4 text-slate-900 tracking-tight">Teaching Philosophy</h2>
+            <p className="text-slate-600 leading-relaxed font-normal text-md">
+              As a 22-year-old student-teacher, I believe that science and math are not just subjects on a blackboard—they are systems for understanding the universe. My goal is to break down abstract chemical equations and complex algebraic functions into relatable, real-world examples, paving a path for STEM brilliance in rural and urban schools alike.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* EDUCATION COMPONENT */}
+      <section id="education" className="py-20 bg-slate-100 px-4 border-y border-slate-200/50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-black text-center mb-4 text-slate-900 tracking-tight">Academic Foundation</h2>
+          <p className="text-center text-slate-500 mb-12 text-sm font-medium">Current high-tier academic tracking and curriculum pathways</p>
+          <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-lg shadow-slate-200/40 border border-slate-200">
+            <div className="flex flex-wrap justify-between items-start gap-4 mb-8">
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 tracking-tight">Bachelor of Science in Education (Science)</h3>
+                <p className="text-amber-500 font-semibold mt-1">Kisii University</p>
+              </div>
+              <span className="bg-slate-900 text-amber-400 text-xs px-4 py-2 rounded-lg font-bold tracking-wider uppercase">
+                2024 — Present (Third Year)
+              </span>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 pt-8 border-t border-slate-100">
+              <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200/60 hover:border-amber-400/40 transition-colors">
+                <h4 className="font-bold text-slate-900 text-lg mb-3 flex items-center gap-3">
+                  <FaFlask className="text-amber-500" /> Chemistry Major
+                </h4>
+                <p className="text-sm text-slate-600 leading-relaxed">Specializing in organic synthesis, physical chemistry interactions, kinetic experiments, and secondary school chemistry syllabus planning.</p>
+              </div>
+              <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200/60 hover:border-amber-400/40 transition-colors">
+                <h4 className="font-bold text-slate-900 text-lg mb-3 flex items-center gap-3">
+                  <FaCalculator className="text-amber-500" /> Mathematics Major
+                </h4>
+                <p className="text-sm text-slate-600 leading-relaxed">Focused on calculus, algebraic structures, statistical models, and modern methodologies for teaching mathematics in secondary schools.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SKILLS COMPONENT */}
